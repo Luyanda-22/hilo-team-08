@@ -15,8 +15,8 @@ print(f"Hello {name}. You have 300 points.")
 
 class cards:
     card = random.randint(1, 13)
-    current_card = random.randint(1, 13)
-    next_card = random.randint(1, 13)
+    current_card = card
+    next_card = card
 
 
     def current_card(self):
@@ -35,51 +35,47 @@ points = 300
 
 answer = print(input("Is the next card higher or lower? (higher / lower): "))
 
+print(card2.next_card())
+
 
 class score:
-    card2 = cards()
-    print(card2.next_card())
 
+    if answer == 'higher' and card1.current_card() < card2.next_card():
+        points += 100
+        print(f'You have {points}.')
+                
+    elif answer == 'lower' and card1.current_card() > card2.next_card():
+        points += 100
+        print(f'You have {points}.')
 
-    if answer == 'higher' and card1.current_card < card2.next_card:
-        points = ({points} + 100)
-        print(points)
- 
-    elif answer == 'lower' and card1.current_card > card2.next_card:
-        points = ({points} + 100)
-        print(points)
- 
-    elif answer == 'higher' and card1.current_card > card2.next_card:
-        points = ({points} - 75)
-        print(points)
+    elif answer == 'higher' and card1.current_card() > card2.next_card():
+        points -= 75
+        print(f'You have {points}.')
 
-    elif answer == 'lower' and card1.current_card < card2.next_card:
-        points = ({points} - 75)
-        print(points)
+    elif answer == 'lower' and card1.current_card() < card2.next_card():
+        points -= 75
+        print(f'You have {points}.')
 
     else:
         print('Invalid input. Please try again.')
-        answer
+        print(answer)
 
+    if points == 0:
+        print(f'You have {points}. Game Over. Thank you for playing')
 
+    elif points != 0:
+        keep_playing = (f'You have {points}. Would you like to continue playing? (Y/N). if you choose to play, type quit when you want the game to stop.')
 
+    else:
+        print('Draw!')
 
-# if points == 0:
-#     print('You lose. Thank you for playing')
+    while keep_playing == 'Y':
+        print(answer)
+        print()
+    else: 
+        'quit'
+        print('Thank you for playing')
 
-# elif points != 0:
-#     keep_playing = (f'You have {points}. Would you like to continue playing? (Y/N). if you choose to play, type quit when you want the game to stop.')
+    if keep_playing == 'N':
+        print('Thank you for playing.')
 
-
-# while keep_playing == 'Y':
-#     print(cards)
-#     print()
-#     print(answer)
-#     print()
-#     print(cards)
-# else: 
-#     'quit'
-#     print('Thank you for playing')
-
-# if keep_playing == 'N':
-#     print('Thank you for playing.')
